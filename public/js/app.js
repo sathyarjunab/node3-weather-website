@@ -10,10 +10,12 @@ async function data(address) {
   try {
     if (!address) {
     } else {
+      let dis_err = document.querySelector(".to_e");
+      dis_err.innerHTML = " ";
+      dis_err.innerHTML = "<h1>loading......<h1>";
       const response = await fetch(url + `${address}`, options);
       let result = await response.text();
       result = JSON.parse(result);
-      let dis_err = document.querySelector(".to_e");
       if (result.cod == "404") {
         dis_err.innerHTML = " ";
         dis_err.innerHTML = `<h1>please enter a valid name<h1>`;
